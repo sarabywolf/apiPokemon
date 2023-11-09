@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
     user:'Username: 12345@gmail.com',
     password:'Password: 12345'
   }
+  loginInfo:any;
   constructor(
     private formBuilder:FormBuilder,
     private router:Router,
@@ -25,10 +26,11 @@ export class LoginComponent implements OnInit {
    }
   ngOnInit(): void {
   }
-  send(){
-    if(this.userData.value.user == '12345@gmail.com' && this.userData.value.password == '12345'){
-      this.router.navigate(['/dashboard'])
+  async getData(){
+    this.loginInfo = await this.userData.value
+    if(this.loginInfo.user == '12345@gmail.com' && this.loginInfo.password == '12345'){
       this._loginService.setStorage('sesionLogin','true')
+      this.router.navigate(['/dashboard'])
     }else{
       alert('incorrect password')
     }

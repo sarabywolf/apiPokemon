@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,7 +13,8 @@ export class DashboardComponent implements OnInit {
   inputValue: string = '';
   constructor(
     private _loginService:LoginServiceService,
-    private _pokemonService:PokemonService
+    private _pokemonService:PokemonService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class DashboardComponent implements OnInit {
   }
   logOut(){
     this._loginService.setStorage('sesionLogin','false')
+    this.router.navigate(['/login'])
   }
 
 }
