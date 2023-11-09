@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class PokemonService {
   apiUrl:string = 'https://pokeapi.co/api/v2/pokemon/?offset=1&limit=40';
   info:any;
+  
   constructor(
     private httpClient:HttpClient
   ) { }
