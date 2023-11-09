@@ -1,0 +1,16 @@
+<h2>info login</h2>
+<p>{{dataLogin.user}}</p>
+<p>{{dataLogin.password}}</p>
+<div class="container-login">
+    <div class="inputs" [formGroup]="userData" >
+        <div class="input">
+            <label for="">Username</label>
+            <input type="text" placeholder="12345@gmail.com" formControlName="user">
+        </div>
+        <div class="input">
+            <label for="">Password</label>
+            <input type="text" placeholder="12345" formControlName="password">
+        </div>
+    </div>
+    <button (click)="send()" >Send</button>
+</div>
